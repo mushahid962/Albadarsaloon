@@ -31,6 +31,7 @@ if (slider) {
 var main = document.querySelector('[data-main-img]');
 document.querySelectorAll('.pthumbs button').forEach(function (b, k, all) {
   b.onclick = function () {
+    main.srcset = b.dataset.srcset;  // srcset wins over src, so both must change
     main.src = b.dataset.src;
     all.forEach(function (x) { x.classList.toggle('on', x === b); });
   };
